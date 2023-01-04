@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicGenerator.Core", "PicGenerator.Core\PicGenerator.Core.csproj", "{E0AA3024-95A2-4411-82DA-61632E45BF8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicGenerator.CLI", "PicGenerator.CLI\PicGenerator.CLI.csproj", "{76725D05-F47C-444C-8809-8E3A3B6A2060}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicGenerator.GUI", "PicGenerator.GUI\PicGenerator.GUI.csproj", "{7F9C6407-512C-4EC0-8124-58290108FE17}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0AA3024-95A2-4411-82DA-61632E45BF8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0AA3024-95A2-4411-82DA-61632E45BF8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0AA3024-95A2-4411-82DA-61632E45BF8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0AA3024-95A2-4411-82DA-61632E45BF8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76725D05-F47C-444C-8809-8E3A3B6A2060}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76725D05-F47C-444C-8809-8E3A3B6A2060}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76725D05-F47C-444C-8809-8E3A3B6A2060}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76725D05-F47C-444C-8809-8E3A3B6A2060}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F9C6407-512C-4EC0-8124-58290108FE17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F9C6407-512C-4EC0-8124-58290108FE17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F9C6407-512C-4EC0-8124-58290108FE17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F9C6407-512C-4EC0-8124-58290108FE17}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

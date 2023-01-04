@@ -1,0 +1,11 @@
+<Application xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:PicGenerator.GUI" x:Class="PicGenerator.GUI.App">
+    <Application.DataTemplates>
+        <local:ViewLocator />
+    </Application.DataTemplates>
+
+    <Application.Styles>
+        <FluentTheme Mode="Light" />
+        <!-- <dialog:FluentColorPickerTheme Mode="Light"/>  -->
+    </Application.Styles>
+</Application>

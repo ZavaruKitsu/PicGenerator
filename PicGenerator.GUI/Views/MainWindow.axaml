@@ -1,0 +1,112 @@
+<Window xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:PicGenerator.GUI.ViewModels" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:avaloniaColorPicker="clr-namespace:AvaloniaColorPicker;assembly=AvaloniaColorPicker" mc:Ignorable="d"
+        d:DesignWidth="1200" d:DesignHeight="450" x:Class="PicGenerator.GUI.Views.MainWindow" Icon="/Assets/pg.ico"
+        Title="PicGenerator">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <Window.Styles>
+        <Style Selector="Image.rotate:pointerover">
+            <Style.Animations>
+                <Animation Duration="0:0:1" IterationCount="INFINITE" Easing="QuinticEaseInOut">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="RotateTransform.Angle" Value="0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="RotateTransform.Angle" Value="360" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+    </Window.Styles>
+
+    <Border BorderThickness="4">
+        <Grid RowDefinitions="60,*,32">
+            <StackPanel Orientation="Horizontal" Spacing="12">
+                <TextBox Width="120" Text="{Binding Chars, Mode=TwoWay}" MaxLength="2" FontSize="36"
+                         TextAlignment="Center" VerticalContentAlignment="Center" />
+
+                <StackPanel Orientation="Vertical" Spacing="4">
+                    <TextBlock Text="Primary:" HorizontalAlignment="Center" />
+                    <avaloniaColorPicker:ColorButton HorizontalAlignment="Center"
+                                                     Color="{Binding PrimaryColor, Mode=TwoWay}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Spacing="4">
+                    <TextBlock Text="Second:" HorizontalAlignment="Center" />
+                    <avaloniaColorPicker:ColorButton HorizontalAlignment="Center"
+                                                     Color="{Binding SecondaryColor, Mode=TwoWay}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Spacing="4">
+                    <TextBlock Text="Third:" HorizontalAlignment="Center" />
+                    <avaloniaColorPicker:ColorButton HorizontalAlignment="Center"
+                                                     Color="{Binding TertiaryColor, Mode=TwoWay}" />
+                </StackPanel>
+
+                <ComboBox Width="180" Items="{Binding Styles}" SelectedItem="{Binding SelectedStyle}"
+                          PlaceholderText="Style">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <ComboBox Width="180" Items="{Binding Decorations}" SelectedItem="{Binding SelectedDecoration}"
+                          PlaceholderText="Decoration">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <ToggleButton x:Name="ResolutionsButton" Content="Resolutions" VerticalAlignment="Top" />
+                <Popup PlacementTarget="ResolutionsButton" WindowManagerAddShadowHint="False"
+                       IsOpen="{Binding #ResolutionsButton.IsChecked}">
+                    <ListBox Width="120" Items="{Binding Resolutions}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding ResolutionText}" IsChecked="{Binding IsChecked}" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Popup>
+
+                <Button Width="120" HorizontalContentAlignment="Center" VerticalAlignment="Top"
+                        Command="{Binding SaveCommand}">
+                    <StackPanel Orientation="Horizontal" Spacing="6">
+                        <TextBlock>Save</TextBlock>
+                        <Image Source="/Assets/checkmark.png" Height="15" Width="15" />
+                    </StackPanel>
+                </Button>
+
+            </StackPanel>
+
+            <ItemsControl Grid.Row="1" Items="{Binding Images}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                    Spacing="40" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.DataTemplates>
+                    <DataTemplate>
+                        <Image Source="{Binding}" Classes="rotate" Height="{Binding Size.Height}"
+                               Width="{Binding Size.Width}" />
+                    </DataTemplate>
+                </ItemsControl.DataTemplates>
+            </ItemsControl>
+
+            <ItemsControl Grid.Row="2" VerticalAlignment="Bottom">
+                <TextBlock Name="StatusBar" FontSize="24" Text="Status" />
+            </ItemsControl>
+        </Grid>
+    </Border>
+
+</Window>
